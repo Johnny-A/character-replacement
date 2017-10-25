@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>замена символов в input</title>
+  </head>
+
+  <body>
+    <input id="app" type="text" name="" value="">
+    <input id="pass" type="text" name="" value="">
+  </body>
+  <script type="text/javascript">
+    function changeSimbol(param) {
+      var app = [];
+      var pass = [];
+      document.querySelector(param.app).addEventListener("input", function() {
+        app.push(document.querySelector(param.app).value.substr(-1))
+        document.querySelector("#pass").value = app.join('');
+        pass.push(param.symbol);
+        document.querySelector(param.app).value = pass.join('');
+      })
+
+    }
+    changeSimbol({
+      app: "#app",
+      symbol: "$"
+    });
+
+  </script>
+
+</html>
